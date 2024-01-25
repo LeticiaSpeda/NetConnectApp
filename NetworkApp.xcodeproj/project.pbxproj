@@ -54,14 +54,30 @@
 		E09569942B62ABD90085345E /* NetworkApp */ = {
 			isa = PBXGroup;
 			children = (
-				E09569952B62ABD90085345E /* AppDelegate.swift */,
-				E09569972B62ABDA0085345E /* SceneDelegate.swift */,
 				E09569992B62ABDA0085345E /* ViewController.swift */,
-				E095699E2B62ABDB0085345E /* Assets.xcassets */,
-				E09569A02B62ABDC0085345E /* LaunchScreen.storyboard */,
+				E09569AA2B62ADF10085345E /* Assets */,
+				E09569A92B62ADE10085345E /* Aplication */,
 				E09569A32B62ABDC0085345E /* Info.plist */,
 			);
 			path = NetworkApp;
+			sourceTree = "<group>";
+		};
+		E09569A92B62ADE10085345E /* Aplication */ = {
+			isa = PBXGroup;
+			children = (
+				E09569A02B62ABDC0085345E /* LaunchScreen.storyboard */,
+				E09569952B62ABD90085345E /* AppDelegate.swift */,
+				E09569972B62ABDA0085345E /* SceneDelegate.swift */,
+			);
+			path = Aplication;
+			sourceTree = "<group>";
+		};
+		E09569AA2B62ADF10085345E /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				E095699E2B62ABDB0085345E /* Assets.xcassets */,
+			);
+			path = Assets;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
