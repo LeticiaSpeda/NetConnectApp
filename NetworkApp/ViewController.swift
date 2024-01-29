@@ -8,10 +8,13 @@
 import UIKit
 
 class ViewController: UIViewController {
+    
+    var viewModel = HomeViewModel()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .yellow
+        viewModel.fetchRequest()
     }
 
 
