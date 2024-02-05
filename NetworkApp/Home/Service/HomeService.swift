@@ -2,8 +2,8 @@ import Foundation
 
 final class HomeService {
     
-    func getPersonList(completion: @escaping (Result<PersonList, Error>)-> Void) {
-        guard let url = URL(string: "https://run.mocky.io/v3/65af81de-e83e-4cce-b751-f239388fdff5") else {
+    func getPersonList(completion: @escaping (Result<[People], Error>)-> Void) {
+        guard let url = URL(string: "https://jsonplaceholder.typicode.com/users") else {
             completion(.failure(NSError(domain: "Invalid URL", code: 0, userInfo: nil)))
             return
         }
@@ -27,10 +27,20 @@ final class HomeService {
             }
             
             do {
-                let personList: PersonList = try JSONDecoder().decode(PersonList.self, from: data)
-                print("Success in \(#function)")
-                completion(.success(personList))
-            } catch  {
+                if let jsonArray = try JSONSerialization.jsonObject(with: data, options: []) as? [[String: Any]] {
+                    let peopleList = jsonArray.map { dict -> People in
+                        let name = dict["name"] as? String ?? ""
+                        let username = dict["username"] as? String ?? ""
+                        let phone = dict["phone"] as? String ?? ""
+                        return People(name: name, userName: username, phone: phone)
+                    }
+                    
+                    print("Success in \(#function)")
+                    completion(.success(peopleList))
+                } else {
+                    completion(.failure(NSError(domain: "Invalid JSON format", code: 0, userInfo: nil)))
+                }
+            } catch {
                 print("Error decoding JSON in \(error.localizedDescription)")
                 completion(.failure(error))
             }
