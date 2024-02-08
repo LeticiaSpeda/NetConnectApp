@@ -27,19 +27,9 @@ final class HomeService {
             }
             
             do {
-                if let jsonArray = try JSONSerialization.jsonObject(with: data, options: []) as? [[String: Any]] {
-                    let peopleList = jsonArray.map { dict -> People in
-                        let name = dict["name"] as? String ?? ""
-                        let username = dict["username"] as? String ?? ""
-                        let phone = dict["phone"] as? String ?? ""
-                        return People(name: name, userName: username, phone: phone)
-                    }
-                    
-                    print("Success in \(#function)")
-                    completion(.success(peopleList))
-                } else {
-                    completion(.failure(NSError(domain: "Invalid JSON format", code: 0, userInfo: nil)))
-                }
+                let decodeded = try JSONDecoder().decode([People].self, from: data)
+                print("Success in \(#function)")
+                completion(.success(decodeded))
             } catch {
                 print("Error decoding JSON in \(error.localizedDescription)")
                 completion(.failure(error))
