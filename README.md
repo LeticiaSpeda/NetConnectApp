@@ -10,7 +10,7 @@ O NetworkApp é uma aplicação que facilita a realização de chamadas de API d
 
 ## Instalação
 
-1. Clone este repositório: `git clone https://github.com/seu-usuario/NetworkApp.git`
+1. Clone este repositório: `git clone https://github.com/LeticiaSpeda/NetworkApp.git`
 2. Navegue até o diretório do projeto: `cd NetworkApp`
 
 
