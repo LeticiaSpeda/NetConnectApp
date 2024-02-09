@@ -9,24 +9,21 @@ final class HomeViewModel {
     
     private let service =  HomeService()
     private var peopleList: [People] = []
-    private weak var delegate: HomeViewModelDelegate?
+    weak var delegate: HomeViewModelDelegate?
     
     var numberOfRowsInSection: Int {
         return peopleList.count
     }
     
-    func delegate(delegate: HomeViewModelDelegate) {
-        self.delegate = delegate
-    }
-    
-    func fetchRequest() { // metodo para disparar reqscao
+    func fetchRequest() {
         service.getPersonList { [weak self] result in
-            guard let self else { return }
+            guard let self = self else { return }
             switch result {
             case .success(let success):
-                print(success)
-            case .failure(let failure):
-                print(failure)
+                self.peopleList = success
+                self.delegate?.success()
+            case .failure(let error):
+                self.delegate?.error(message: error.localizedDescription)
             }
         }
     }
