@@ -1,8 +1,8 @@
-//
-//  HTTPMethod.swift
-//  NetworkApp
-//
-//  Created by Leticia Speda on 09/02/24.
-//
-
 import Foundation
+
+enum HTTPMethod: String {
+    case get = "GET"
+    case post = "POST"
+    case put = "PUT"
+    case delete = "DELETE"
+}
