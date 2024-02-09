@@ -27,7 +27,7 @@ final class CustomTableViewCell: UITableViewCell, ViewCode {
     
     // MARK - Helpers
     func setupHierarchy() {
-        addSubview(screen)
+        contentView.addSubview(screen)
     }
     
     func setupConstraints() {
@@ -41,5 +41,6 @@ final class CustomTableViewCell: UITableViewCell, ViewCode {
     
     func setupStyle() {
         selectionStyle = .none
+        backgroundColor = .white
     }
 }
