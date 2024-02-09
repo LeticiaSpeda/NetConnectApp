@@ -1,40 +1,41 @@
 import Foundation
 
+enum NetworkError: Error {
+    case invalidURL(url: String)
+    case noData
+    case invalidResponse
+    case decodingError(Error)
+    case networkFailure(Error)
+}
+
+extension NetworkError: LocalizedError {
+    var errorDescription: String? {
+        switch self {
+        case .invalidURL(let url):
+            return "URL inválida -> \(url)"
+        case .noData:
+            return "Dados não recebidos da API."
+        case .invalidResponse:
+            return "Resposta inválida da API."
+        case .decodingError(let error):
+            return "Decodificação falhou: \(error.localizedDescription)"
+        case .networkFailure(let error):
+            return "Falha na rede: \(error.localizedDescription)"
+        }
+    }
+}
+
 final class HomeService {
     
     func getPersonList(completion: @escaping (Result<[People], Error>)-> Void) {
-        guard let url = URL(string: "https://jsonplaceholder.typicode.com/users") else {
-            completion(.failure(NSError(domain: "Invalid URL", code: 0, userInfo: nil)))
-            return
-        }
-        
-        let task = URLSession.shared.dataTask(with: url) { data, response, error in
-            guard let data = data, error == nil else {
-                if let error = error {
-                    print("Error in \(#function): \(error.localizedDescription)")
-                    completion(.failure(error))
-                } else {
-                    completion(.failure(NSError(domain: "No data received", code: 0, userInfo: nil)))
-                }
-                return
-            }
-            
-            guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
-                let statusCode = (response as? HTTPURLResponse)?.statusCode ?? 0
-                print("Invalid response in \(#function): Status Code \(statusCode)")
-                completion(.failure(NSError(domain: "Invalid response", code: statusCode, userInfo: nil)))
-                return
-            }
-            
-            do {
-                let decodeded = try JSONDecoder().decode([People].self, from: data)
-                print("Success in \(#function)")
-                completion(.success(decodeded))
-            } catch {
-                print("Error decoding JSON in \(error.localizedDescription)")
+        let urlString = "https://jsonplaceholder.typicode.com/users"
+        ServiceManager.shared.request(with: urlString, method: .get, decodeType: [People].self) { result in
+            switch result {
+            case .success(let peoples):
+                completion(.success(peoples))
+            case .failure(let error):
                 completion(.failure(error))
             }
         }
-        task.resume()
     }
 }
