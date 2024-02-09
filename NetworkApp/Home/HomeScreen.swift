@@ -5,6 +5,7 @@ final class HomeScreen: UIView, ViewCode {
     lazy var tableView: UITableView = {
         let tableView = UITableView()
         tableView.register(CustomTableViewCell.self, forCellReuseIdentifier: CustomTableViewCell.identifier)
+        tableView.backgroundColor = .white
         tableView.enableViewCode()
         return tableView
     }()
@@ -14,13 +15,13 @@ final class HomeScreen: UIView, ViewCode {
         commonInit()
     }
     
+    @available(*, unavailable)
+    required init?(coder: NSCoder) { nil }
+    
     func configTableViewProtocols(delegate: UITableViewDelegate, dataSource: UITableViewDataSource) {
         tableView.delegate = delegate
         tableView.dataSource = dataSource
     }
-    
-    @available(*, unavailable)
-    required init?(coder: NSCoder) { nil }
     
     func setupHierarchy() {
         addSubview(tableView)
