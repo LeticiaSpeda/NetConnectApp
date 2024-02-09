@@ -14,29 +14,32 @@ final class HomeViewController: UIViewController {
     
     override func loadView() {
         super.loadView()
-        //        self.screen = HomeScreen()
+        self.screen = HomeScreen()
         self.view = screen
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .yellow
         viewModel.fetchRequest()
-        viewModel.delegate(delegate: self)
+        viewModel.delegate = self
     }
 }
 
 extension HomeViewController: HomeViewModelDelegate {
     func success() {
-        screen.configTableViewProtocols(delegate: self, dataSource: self)
-        screen.tableView.reloadData()
+        DispatchQueue.main.async {
+            self.screen.configTableViewProtocols(delegate: self, dataSource: self)
+            self.screen.tableView.reloadData()
+        }
     }
     
     func error(message: String) {
-        let alert = UIAlertController(title: "Houve um problema", message: message, preferredStyle: .alert)
-        let addAlert = UIAlertAction(title: "ok", style: .cancel)
-        alert.addAction(addAlert)
-        present(alert, animated: true)
+        DispatchQueue.main.async {
+            let alert = UIAlertController(title: "Houve um problema", message: message, preferredStyle: .alert)
+            let addAlert = UIAlertAction(title: "ok", style: .cancel)
+            alert.addAction(addAlert)
+            self.present(alert, animated: true)
+        }
     }
 }
 
