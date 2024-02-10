@@ -4,10 +4,12 @@ final class ServiceManager: NetworkLayer {
 
     static var shared = ServiceManager()
     private var baseUrl: String
+    private var requestBuider: RequestBuilder
+    private(set) var session: URLSession
     
-    private(set) var session = URLSession.shared
-    
-    init(baseUrl: String? = nil) {
+    init(session: URLSession = URLSession.shared ,baseUrl: String? = nil, requestBuider: RequestBuilder = DefaulRequestBuilder()) {
+        self.session = session
+        self.requestBuider = requestBuider
         if let baseUrl {
             self.baseUrl = baseUrl
         } else if let baseUrlString = Bundle.main.infoDictionary?["BaseUrl"] as? String { //busca no info.plist
@@ -19,15 +21,14 @@ final class ServiceManager: NetworkLayer {
     
     func request<T>(with endpoint: Endpoint, decodeType: T.Type, completion: @escaping (Result<T, NetworkError>) -> Void) where T : Decodable {
         
-        let url = baseUrl + endpoint.url
+        let urlString = baseUrl + endpoint.url
         
-        guard let url: URL = URL(string: endpoint.url) else {
-            completion(.failure(.invalidURL(url: url)))
+        guard let url = URL(string: urlString) else {
+            completion(.failure(.invalidURL(url: urlString)))
             return
         }
         
-        var request = URLRequest(url: url)
-        request.httpMethod = endpoint.method.rawValue
+        let request = requestBuider.buildRequest(with: endpoint, url: url)
         
         let task = session.dataTask(with: request) { data, response, error in
             

@@ -16,6 +16,8 @@
 		E09569B22B63E3FA0085345E /* HomeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E09569B12B63E3FA0085345E /* HomeService.swift */; };
 		E09569B42B63EB330085345E /* PeopleList.swift in Sources */ = {isa = PBXBuildFile; fileRef = E09569B32B63EB330085345E /* PeopleList.swift */; };
 		E09CEEC32B76F31C0003B7F3 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = E09CEEC22B76F31C0003B7F3 /* Endpoint.swift */; };
+		E09CEEC52B77C3F80003B7F3 /* RequestBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E09CEEC42B77C3F80003B7F3 /* RequestBuilder.swift */; };
+		E09CEEC72B77C4560003B7F3 /* DefaulRequestBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E09CEEC62B77C4560003B7F3 /* DefaulRequestBuilder.swift */; };
 		E0C438ED2B7589CF00AD90B0 /* ServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C438EC2B7589CF00AD90B0 /* ServiceManager.swift */; };
 		E0C438EF2B7642FB00AD90B0 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C438EE2B7642FB00AD90B0 /* NetworkError.swift */; };
 		E0C438F12B76435F00AD90B0 /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C438F02B76435F00AD90B0 /* HTTPMethod.swift */; };
@@ -39,6 +41,8 @@
 		E09569B12B63E3FA0085345E /* HomeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeService.swift; sourceTree = "<group>"; };
 		E09569B32B63EB330085345E /* PeopleList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleList.swift; sourceTree = "<group>"; };
 		E09CEEC22B76F31C0003B7F3 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
+		E09CEEC42B77C3F80003B7F3 /* RequestBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestBuilder.swift; sourceTree = "<group>"; };
+		E09CEEC62B77C4560003B7F3 /* DefaulRequestBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaulRequestBuilder.swift; sourceTree = "<group>"; };
 		E0C438EC2B7589CF00AD90B0 /* ServiceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceManager.swift; sourceTree = "<group>"; };
 		E0C438EE2B7642FB00AD90B0 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		E0C438F02B76435F00AD90B0 /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
@@ -162,6 +166,8 @@
 				E0C438F02B76435F00AD90B0 /* HTTPMethod.swift */,
 				E0C438F22B7644B000AD90B0 /* NetworkLayer.swift */,
 				E09CEEC22B76F31C0003B7F3 /* Endpoint.swift */,
+				E09CEEC42B77C3F80003B7F3 /* RequestBuilder.swift */,
+				E09CEEC62B77C4560003B7F3 /* DefaulRequestBuilder.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -269,6 +275,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E09CEEC72B77C4560003B7F3 /* DefaulRequestBuilder.swift in Sources */,
 				E0D9B2E12B74F76D00A84990 /* CustomTableViewCellScreen.swift in Sources */,
 				E0D9B2E82B74F8FE00A84990 /* ViewCode.swift in Sources */,
 				E0C438F12B76435F00AD90B0 /* HTTPMethod.swift in Sources */,
@@ -285,6 +292,7 @@
 				E0C438EF2B7642FB00AD90B0 /* NetworkError.swift in Sources */,
 				E09569B22B63E3FA0085345E /* HomeService.swift in Sources */,
 				E0C438ED2B7589CF00AD90B0 /* ServiceManager.swift in Sources */,
+				E09CEEC52B77C3F80003B7F3 /* RequestBuilder.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
