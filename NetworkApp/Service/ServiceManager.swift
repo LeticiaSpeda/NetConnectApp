@@ -1,20 +1,33 @@
 import Foundation
 
 final class ServiceManager: NetworkLayer {
-    
+
     static var shared = ServiceManager()
+    private var baseUrl: String
     
     private(set) var session = URLSession.shared
     
-    func request<T>(with urlString: String, method: HTTPMethod = .get, decodeType: T.Type, completion: @escaping (Result<T, NetworkError>) -> Void) where T : Decodable {
+    init(baseUrl: String? = nil) {
+        if let baseUrl {
+            self.baseUrl = baseUrl
+        } else if let baseUrlString = Bundle.main.infoDictionary?["BaseUrl"] as? String { //busca no info.plist
+            self.baseUrl = baseUrlString
+        } else {
+            self.baseUrl = ""
+        }
+    }
+    
+    func request<T>(with endpoint: Endpoint, decodeType: T.Type, completion: @escaping (Result<T, NetworkError>) -> Void) where T : Decodable {
         
-        guard let url: URL = URL(string: urlString) else {
-            completion(.failure(.invalidURL(url: urlString)))
+        let url = baseUrl + endpoint.url
+        
+        guard let url: URL = URL(string: endpoint.url) else {
+            completion(.failure(.invalidURL(url: url)))
             return
         }
         
         var request = URLRequest(url: url)
-        request.httpMethod = method.rawValue
+        request.httpMethod = endpoint.method.rawValue
         
         let task = session.dataTask(with: request) { data, response, error in
             
