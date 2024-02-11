@@ -1,6 +1,6 @@
-# NetworkApp
+# NetConnect
 
-O NetworkApp é uma aplicação que facilita a realização de chamadas de API de forma genérica. Seu principal objetivo é proporcionar uma maneira simples e flexível de integrar APIs em projetos.
+O NetConnect é uma aplicação que facilita a realização de chamadas de API de forma genérica. Seu principal objetivo é proporcionar uma maneira simples e flexível de integrar APIs em projetos.
 
 ## Recursos Principais
 
