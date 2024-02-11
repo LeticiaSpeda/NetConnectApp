@@ -6,10 +6,12 @@ final class ServiceManager: NetworkLayer {
     private var baseUrl: String
     private var requestBuider: RequestBuilder
     private(set) var session: URLSession
+    private var decoder:  JSONDecoder
     
-    init(session: URLSession = URLSession.shared ,baseUrl: String? = nil, requestBuider: RequestBuilder = DefaulRequestBuilder()) {
+    init(session: URLSession = URLSession.shared ,baseUrl: String? = nil, requestBuider: RequestBuilder = DefaulRequestBuilder(), decoder:  JSONDecoder = JSONDecoder()) {
         self.session = session
         self.requestBuider = requestBuider
+        self.decoder = decoder
         if let baseUrl {
             self.baseUrl = baseUrl
         } else if let baseUrlString = Bundle.main.infoDictionary?["BaseUrl"] as? String { //busca no info.plist
@@ -24,6 +26,7 @@ final class ServiceManager: NetworkLayer {
         let urlString = baseUrl + endpoint.url
         
         guard let url = URL(string: urlString) else {
+            NetworkLogger.logError(error: .invalidURL(url: urlString))
             completion(.failure(.invalidURL(url: urlString)))
             return
         }
@@ -31,9 +34,8 @@ final class ServiceManager: NetworkLayer {
         let request = requestBuider.buildRequest(with: endpoint, url: url)
         
         let task = session.dataTask(with: request) { data, response, error in
-            
+            NetworkLogger.log(request: request, response: response, data: data, error: error)
             if let error {
-                print("ERROR \(#function) Detalhe do erro: \(error.localizedDescription)")
                 completion(.failure(.networkFailure(error)))
                 return
             }
@@ -49,13 +51,9 @@ final class ServiceManager: NetworkLayer {
             }
             
             do {
-                let decoder = JSONDecoder()
-                decoder.dateDecodingStrategy = .iso8601
-                let object: T = try decoder.decode(T.self, from: data)
-                print("SUCCESS -> \(#function)")
+                let object: T = try self.decoder.decode(T.self, from: data)
                 completion(.success(object))
             } catch  {
-                print("ERROR -> \(#function)")
                 completion(.failure(.decodingError(error)))
             }
         }

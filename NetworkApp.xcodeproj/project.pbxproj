@@ -18,6 +18,7 @@
 		E09CEEC32B76F31C0003B7F3 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = E09CEEC22B76F31C0003B7F3 /* Endpoint.swift */; };
 		E09CEEC52B77C3F80003B7F3 /* RequestBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E09CEEC42B77C3F80003B7F3 /* RequestBuilder.swift */; };
 		E09CEEC72B77C4560003B7F3 /* DefaulRequestBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E09CEEC62B77C4560003B7F3 /* DefaulRequestBuilder.swift */; };
+		E09CEEC92B785E200003B7F3 /* NetworkLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = E09CEEC82B785E200003B7F3 /* NetworkLogger.swift */; };
 		E0C438ED2B7589CF00AD90B0 /* ServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C438EC2B7589CF00AD90B0 /* ServiceManager.swift */; };
 		E0C438EF2B7642FB00AD90B0 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C438EE2B7642FB00AD90B0 /* NetworkError.swift */; };
 		E0C438F12B76435F00AD90B0 /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C438F02B76435F00AD90B0 /* HTTPMethod.swift */; };
@@ -43,6 +44,7 @@
 		E09CEEC22B76F31C0003B7F3 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 		E09CEEC42B77C3F80003B7F3 /* RequestBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestBuilder.swift; sourceTree = "<group>"; };
 		E09CEEC62B77C4560003B7F3 /* DefaulRequestBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaulRequestBuilder.swift; sourceTree = "<group>"; };
+		E09CEEC82B785E200003B7F3 /* NetworkLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkLogger.swift; sourceTree = "<group>"; };
 		E0C438EC2B7589CF00AD90B0 /* ServiceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceManager.swift; sourceTree = "<group>"; };
 		E0C438EE2B7642FB00AD90B0 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		E0C438F02B76435F00AD90B0 /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
@@ -168,6 +170,7 @@
 				E09CEEC22B76F31C0003B7F3 /* Endpoint.swift */,
 				E09CEEC42B77C3F80003B7F3 /* RequestBuilder.swift */,
 				E09CEEC62B77C4560003B7F3 /* DefaulRequestBuilder.swift */,
+				E09CEEC82B785E200003B7F3 /* NetworkLogger.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -284,6 +287,7 @@
 				E0D9B2E42B74F81D00A84990 /* UIView+Extensions.swift in Sources */,
 				E0D9B2EA2B750C9A00A84990 /* HomeScreen.swift in Sources */,
 				E09569962B62ABD90085345E /* AppDelegate.swift in Sources */,
+				E09CEEC92B785E200003B7F3 /* NetworkLogger.swift in Sources */,
 				E09569982B62ABDA0085345E /* SceneDelegate.swift in Sources */,
 				E0D9B2DF2B74F73800A84990 /* CustomTableViewCell.swift in Sources */,
 				E09CEEC32B76F31C0003B7F3 /* Endpoint.swift in Sources */,

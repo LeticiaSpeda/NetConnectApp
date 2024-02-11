@@ -77,10 +77,10 @@
             filePath = "NetworkApp/Service/ServiceManager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "14"
-            endingLineNumber = "14"
-            landmarkName = "ServiceManager"
-            landmarkType = "3">
+            startingLineNumber = "16"
+            endingLineNumber = "16"
+            landmarkName = "init(session:baseUrl:requestBuider:decoder:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -93,10 +93,10 @@
             filePath = "NetworkApp/Service/ServiceManager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "16"
-            endingLineNumber = "16"
-            landmarkName = "ServiceManager"
-            landmarkType = "3">
+            startingLineNumber = "18"
+            endingLineNumber = "18"
+            landmarkName = "init(session:baseUrl:requestBuider:decoder:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -109,10 +109,10 @@
             filePath = "NetworkApp/Service/ServiceManager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "18"
-            endingLineNumber = "18"
-            landmarkName = "ServiceManager"
-            landmarkType = "3">
+            startingLineNumber = "20"
+            endingLineNumber = "20"
+            landmarkName = "init(session:baseUrl:requestBuider:decoder:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -125,8 +125,8 @@
             filePath = "NetworkApp/Service/ServiceManager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "56"
-            endingLineNumber = "56"
+            startingLineNumber = "55"
+            endingLineNumber = "55"
             landmarkName = "request(with:decodeType:completion:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -141,8 +141,8 @@
             filePath = "NetworkApp/Service/ServiceManager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "59"
-            endingLineNumber = "59"
+            startingLineNumber = "57"
+            endingLineNumber = "57"
             landmarkName = "request(with:decodeType:completion:)"
             landmarkType = "7">
          </BreakpointContent>
